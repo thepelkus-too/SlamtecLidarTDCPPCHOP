@@ -59,6 +59,8 @@ public:
 	virtual void		pulsePressed(const char* name, void* reserved1) override;
 
 private:
+    void connect(std::string com_path);
+    void disconnect();
 
 	// We don't need to store this pointer, but we do for the example.
 	// The OP_NodeInfo class store information about the node that's using
