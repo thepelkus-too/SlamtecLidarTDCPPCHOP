@@ -165,8 +165,8 @@ void CPlusPlusCHOPExample::connect(std::string com_path)
 
 void CPlusPlusCHOPExample::disconnect()
 {
-    drv->stop();
-    drv->stopMotor();
+//    drv->stop();
+//    drv->stopMotor();
     RPlidarDriver::DisposeDriver(drv);
     drv = NULL;
 }
@@ -181,21 +181,16 @@ void CPlusPlusCHOPExample::getGeneralInfo(CHOP_GeneralInfo *ginfo, const OP_Inpu
 
 bool CPlusPlusCHOPExample::getOutputInfo(CHOP_OutputInfo *info, const OP_Inputs *inputs, void *reserved1)
 {
+    // Notes:
+    // Tried pruning bad data out here and changing the output length, but something
+    //   wasn't working quite right, I think in syncing between the length here and the
+    //   data output in the exec method, and errors, they happened
+
     info->numChannels = 2;
+    info->numSamples = sampleCount;
 
-    int numSamples = 0;
-    for (int i = 0; i < 720; ++i)
-    {
-        if (distances[i] > 0.0f)
-        {
-            ++numSamples;
-        }
-    }
-    info->numSamples = 720;
-    //        info->numSamples = inputs->getParDouble("Samples");
-
-    // For illustration we are going to output 120hz data
-    info->sampleRate = inputs->getParDouble("Samples");
+    // Can't remember why I did this, but it seemed like a good idea at the time.
+    info->sampleRate = sampleCount;
     return true;
 }
 
@@ -205,10 +200,13 @@ void CPlusPlusCHOPExample::getChannelName(int32_t index, OP_String *name, const 
 
     int coords = inputs->getParInt("Coordsystem");
 
+    // Polar coords option
     if (coords == 0 && index == 0)
         fulllabel = "angle";
     else if (coords == 0 && index == 1)
         fulllabel = "distance";
+
+    // Cartesian coords option
     else if (coords == 1 && index == 0)
         fulllabel = "x";
     else if (coords == 1 && index == 1)
@@ -230,6 +228,10 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
 
     // Check to init or uninit depending on state+params combination
     bool isActive = inputs->getParInt("Active") == 1;
+    bool drvInited = drv != NULL;
+
+    printf("active: %s; inited: %s\n", isActive ? "Y" : "N", drvInited ? "Y" : "N");
+
     if (isActive && !drv)
     {
         printf("rplidar::connecting\n");
@@ -238,8 +240,8 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
     }
     else if (!isActive && drv)
     {
-//        printf("rplidar::disconnecting\n");
-//        disconnect();
+        printf("rplidar::disconnecting\n");
+        disconnect();
     }
 
     // If driver isn't initialized, return zeroed out data
@@ -255,11 +257,11 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         return;
     }
 
-    //    op_result = drv->grabScanData(nodes, count);
+//    op_result = drv->grabScanData(nodes, count);
     op_result = drv->getScanDataWithInterval(nodes, retrieved);
-    //    printf("Retrieved: %lu", retrieved);
+//    printf("Retrieved: %lu", retrieved);
 
-    int samples = inputs->getParInt("Samples");
+//    int samples = inputs->getParInt("Samples");
     float offsetDegrees = inputs->getParDouble("Offsetdegrees");
 
     float angle = 0.0f;
@@ -273,7 +275,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         double tempAngle;
         int halfAngle;
 
-        for (int pos = 0; pos < (int)samples; ++pos)
+        for (int pos = 0; pos < (int)sampleCount; ++pos)
         {
             float unadjustedAngle = (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT) / 64.0f;
             if (unadjustedAngle > 360.0f)
@@ -333,31 +335,11 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
                 output->channels[angleChannel][channelOffset] = pos / 2.0f;
                 output->channels[distanceChannel][channelOffset] = distances[pos];
                 ++channelOffset;
-
-                //                for (int pos = 0; pos < (int)samples ; ++pos) {
-                //                    output->channels[angleChannel][pos] = offsetDegrees - (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT)/64.0f;
-                //                    output->channels[distanceChannel][pos] = nodes[pos].distance_q2/4.0f;
-                //                    printf("%s theta: %03.2f Dist: %08.2f Q: %d \n",
-                //                           (nodes[pos].sync_quality & RPLIDAR_RESP_MEASUREMENT_SYNCBIT) ?"S ":"  ",
-                //                           (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT)/64.0f,
-                //                           nodes[pos].distance_q2/4.0f,
-                //                           nodes[pos].sync_quality >> RPLIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);
             }
             break;
 
         case 1:
         default:
-            //                for (int pos = 0; pos < (int)samples ; ++pos) {
-            //                    float tempAngle = ((nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT)/64.0f);
-            //                    float offsetAngle = offsetDegrees - tempAngle;
-            //
-            //                    angle = floor(angle * 10.0f) / 10.0f;
-            //                    angle = offsetAngle * degreesToRadians;
-            //                    distance = nodes[pos].distance_q2/4.0f;
-            //
-            //                    output->channels[xChannel][pos] = distance * cos(angle);
-            //                    output->channels[yChannel][pos] = distance * sin(angle);
-
             for (int pos = 0, channelOffset = 0; pos < (int)720; ++pos)
             {
                 if (distances[pos] < 1.0f)
@@ -378,131 +360,14 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
                 output->channels[xChannel][channelOffset] = distance * cos(angle);
                 output->channels[yChannel][channelOffset] = distance * sin(angle);
                 ++channelOffset;
-
-                //                    printf("%s theta: %03.2f Dist: %08.2f Q: %d \n",
-                //                           (nodes[pos].sync_quality & RPLIDAR_RESP_MEASUREMENT_SYNCBIT) ?"S ":"  ",
-                //                           (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT)/64.0f,
-                //                           nodes[pos].distance_q2/4.0f,
-                //                           nodes[pos].sync_quality >> RPLIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);
             }
             break;
         }
     }
 
-    //    u_result op_result;
-    //    rplidar_response_measurement_node_hq_t nodes[8192];
-    //    size_t count = _countof(nodes);
-    //
-    //    op_result = drv->grabScanDataHq(nodes, count, 0);
-    //
-    //    int pos = 0;
-    //    printf("%s theta: %03.2f Dist: %08.2f Q: %d \n",
-    //           (nodes[pos].quality & RPLIDAR_RESP_MEASUREMENT_SYNCBIT) ? "S " : "  ",
-    //           (nodes[pos].angle_z_q14 >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT) / 64.0f,
-    //           nodes[pos].dist_mm_q2 / 4.0f,
-    //           nodes[pos].quality >> RPLIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);
-    //
-    //    return;
-    //
-    //    if (IS_OK(op_result))
-    //    {
-    //        drv->ascendScanData(nodes, count);
-    //        for (int pos = 0; pos < (int)count; ++pos)
-    //        {
-    //            printf("%s theta: %03.2f Dist: %08.2f Q: %d \n",
-    //                   (nodes[pos].quality & RPLIDAR_RESP_MEASUREMENT_SYNCBIT) ? "S " : "  ",
-    //                   (nodes[pos].angle_z_q14 >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT) / 64.0f,
-    //                   nodes[pos].dist_mm_q2 / 4.0f,
-    //                   nodes[pos].quality >> RPLIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);
-    //        }
-    //    }
-
-    /////////////////
-
     myExecuteCount++;
 
-    // In this case we'll just take the first input and re-output it scaled.
 
-    //    if (inputs->getNumInputs() > 0)
-    //    {
-    //        // We know the first CHOP has the same number of channels
-    //        // because we returned false from getOutputInfo.
-    //
-    //        inputs->enablePar("Speed", 0);    // not used
-    //        inputs->enablePar("Reset", 0);    // not used
-    //        inputs->enablePar("Shape", 0);    // not used
-    //
-    //        int ind = 0;
-    //        for (int i = 0 ; i < output->numChannels; i++)
-    //        {
-    //            for (int j = 0; j < output->numSamples; j++)
-    //            {
-    //                const OP_CHOPInput    *cinput = inputs->getInputCHOP(0);
-    //                output->channels[i][j] = float(cinput->getChannelData(i)[ind] * scale);
-    //                ind++;
-    //
-    //                // Make sure we don't read past the end of the CHOP input
-    //                ind = ind % cinput->numSamples;
-    //            }
-    //        }
-    //
-    //    }
-    //    else // If not input is connected, lets output a sine wave instead
-    //    {
-    //        inputs->enablePar("Speed", 1);
-    //        inputs->enablePar("Reset", 1);
-    //
-    //        double speed = inputs->getParDouble("Speed");
-    //        double step = speed * 0.01f;
-    //
-    //
-    //        // menu items can be evaluated as either an integer menu position, or a string
-    //        int shape = inputs->getParInt("Shape");
-    ////        const char *shape_str = inputs->getParString("Shape");
-    //
-    //        // keep each channel at a different phase
-    //        double phase = 2.0f * 3.14159f / (float)(output->numChannels);
-    //
-    //        // Notice that startIndex and the output->numSamples is used to output a smooth
-    //        // wave by ensuring that we are outputting a value for each sample
-    //        // Since we are outputting at 120, for each frame that has passed we'll be
-    //        // outputing 2 samples (assuming the timeline is running at 60hz).
-    //
-    //
-    //        for (int i = 0; i < output->numChannels; i++)
-    //        {
-    //            double offset = myOffset + phase*i;
-    //
-    //
-    //            double v = 0.0f;
-    //
-    //            switch(shape)
-    //            {
-    //                case 0:        // sine
-    //                    v = sin(offset);
-    //                    break;
-    //
-    //                case 1:        // square
-    //                    v = fabs(fmod(offset, 1.0)) > 0.5;
-    //                    break;
-    //
-    //                case 2:        // ramp
-    //                    v = fabs(fmod(offset, 1.0));
-    //                    break;
-    //            }
-    //
-    //
-    //            v *= scale;
-    //
-    //            for (int j = 0; j < output->numSamples; j++)
-    //            {
-    //                output->channels[i][j] = float(v);
-    //                offset += step;
-    //            }
-    //        }
-    //
-    //        myOffset += step * output->numSamples;
-    //    }
 }
 
 int32_t
@@ -606,19 +471,19 @@ void CPlusPlusCHOPExample::setupParameters(OP_ParameterManager *manager, void *r
         assert(res == OP_ParAppendResult::Success);
     }
 
-    {
-        OP_NumericParameter np;
-
-        np.name = "Samples";
-        np.label = "Samples";
-
-        np.minSliders[0] = 1;
-        np.maxSliders[0] = 720;
-        np.defaultValues[0] = 720;
-
-        OP_ParAppendResult res = manager->appendFloat(np);
-        assert(res == OP_ParAppendResult::Success);
-    }
+//    {
+//        OP_NumericParameter np;
+//
+//        np.name = "Samples";
+//        np.label = "Samples";
+//
+//        np.minSliders[0] = 1;
+//        np.maxSliders[0] = 720;
+//        np.defaultValues[0] = 720;
+//
+//        OP_ParAppendResult res = manager->appendFloat(np);
+//        assert(res == OP_ParAppendResult::Success);
+//    }
 
     {
         OP_StringParameter sp;
@@ -646,22 +511,6 @@ void CPlusPlusCHOPExample::setupParameters(OP_ParameterManager *manager, void *r
         np.defaultValues[0] = 0;
 
         OP_ParAppendResult res = manager->appendFloat(np);
-        assert(res == OP_ParAppendResult::Success);
-    }
-
-    // shape
-    {
-        OP_StringParameter sp;
-
-        sp.name = "Shape";
-        sp.label = "Shape";
-
-        sp.defaultValue = "Sine";
-
-        const char *names[] = {"Sine", "Square", "Ramp"};
-        const char *labels[] = {"Sine", "Square", "Ramp"};
-
-        OP_ParAppendResult res = manager->appendMenu(sp, 3, names, labels);
         assert(res == OP_ParAppendResult::Success);
     }
 

@@ -70,8 +70,21 @@ private:
     // Driver instance for the lidar driver
     RPlidarDriver *drv;
     rplidar_response_measurement_node_t     nodes[8192];
-    double distances[720] = {0};
-    double calibration[720] = {0};
+
+    // Note on sample count:
+    //  When letting the lidar device fill in the nodes set aside above, as
+    //  in the included example, it looks like maybe 500-600 good samples
+    //  followed by a bunch of bad data. (That is for the blocking call.)
+    //
+    //  To get around this, I'm just assuming that I can get samples for
+    //  every half degree, and whatever data comes in from the async scan
+    //  call, I'll bucket it into the half degree that it rounds to. Need
+    //  to do more analysis of the data coming back from the scans to see
+    //  if there's a better method.
+
+    static const int sampleCount = 720;
+    double distances[sampleCount] = {0};
+    double calibration[sampleCount] = {0};
     
     const int totalCalbrationFrames = 60;
     int calibrationFramesRemaining = 0;
@@ -82,8 +95,5 @@ private:
 	// function is called, then passes back to the CHOP 
 	int32_t				myExecuteCount;
 
-
 	double				myOffset;
-
-
 };
