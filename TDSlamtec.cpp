@@ -166,8 +166,8 @@ void CPlusPlusCHOPExample::connect(std::string com_path)
 
 void CPlusPlusCHOPExample::disconnect()
 {
-//    drv->stop();
-//    drv->stopMotor();
+    //    drv->stop();
+    //    drv->stopMotor();
     RPlidarDriver::DisposeDriver(drv);
     drv = NULL;
 }
@@ -256,11 +256,11 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         return;
     }
 
-//    op_result = drv->grabScanData(nodes, count);
+    //    op_result = drv->grabScanData(nodes, count);
     op_result = drv->getScanDataWithInterval(nodes, retrieved);
-//    printf("Retrieved: %lu", retrieved);
+    //    printf("Retrieved: %lu", retrieved);
 
-//    int samples = inputs->getParInt("Samples");
+    //    int samples = inputs->getParInt("Samples");
     float offsetDegrees = inputs->getParDouble("Offsetdegrees");
 
     float angle = 0.0f;
@@ -268,7 +268,6 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
 
     if (IS_OK(op_result))
     {
-        drv->ascendScanData(nodes, count);
         int coordSystem = inputs->getParInt("Coordsystem");
 
         double tempAngle;
@@ -365,8 +364,6 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
     }
 
     myExecuteCount++;
-
-
 }
 
 int32_t
@@ -470,19 +467,19 @@ void CPlusPlusCHOPExample::setupParameters(OP_ParameterManager *manager, void *r
         assert(res == OP_ParAppendResult::Success);
     }
 
-//    {
-//        OP_NumericParameter np;
-//
-//        np.name = "Samples";
-//        np.label = "Samples";
-//
-//        np.minSliders[0] = 1;
-//        np.maxSliders[0] = 720;
-//        np.defaultValues[0] = 720;
-//
-//        OP_ParAppendResult res = manager->appendFloat(np);
-//        assert(res == OP_ParAppendResult::Success);
-//    }
+    //    {
+    //        OP_NumericParameter np;
+    //
+    //        np.name = "Samples";
+    //        np.label = "Samples";
+    //
+    //        np.minSliders[0] = 1;
+    //        np.maxSliders[0] = 720;
+    //        np.defaultValues[0] = 720;
+    //
+    //        OP_ParAppendResult res = manager->appendFloat(np);
+    //        assert(res == OP_ParAppendResult::Success);
+    //    }
 
     {
         OP_StringParameter sp;
