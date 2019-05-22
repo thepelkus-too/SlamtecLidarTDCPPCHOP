@@ -231,8 +231,6 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
     bool isActive = inputs->getParInt("Active") == 1;
     bool drvInited = drv != NULL;
 
-    printf("active: %s; inited: %s\n", isActive ? "Y" : "N", drvInited ? "Y" : "N");
-
     if (isActive && !drv)
     {
         printf("rplidar::connecting\n");
