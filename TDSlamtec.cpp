@@ -13,7 +13,7 @@
 //TODO: See if there's a smarter way to process data from the non-blocking method
 //TODO: try with bad port values and do some init debugging
 
-#include "CPlusPlusCHOPExample.h"
+#include "TDSlamtec.h"
 
 #include <string>
 

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E23329D51DF092AD0002B4FE"
-               BuildableName = "CPlusPlusCHOPExample.plugin"
-               BlueprintName = "CPlusPlusCHOPExample"
-               ReferencedContainer = "container:CPlusPlusCHOPExample.xcodeproj">
+               BuildableName = "TDSlamtec.plugin"
+               BlueprintName = "TDSlamtec"
+               ReferencedContainer = "container:TDSlamtec.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E23329D51DF092AD0002B4FE"
-            BuildableName = "CPlusPlusCHOPExample.plugin"
-            BlueprintName = "CPlusPlusCHOPExample"
-            ReferencedContainer = "container:CPlusPlusCHOPExample.xcodeproj">
+            BuildableName = "TDSlamtec.plugin"
+            BlueprintName = "TDSlamtec"
+            ReferencedContainer = "container:TDSlamtec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <CommandLineArguments>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E23329D51DF092AD0002B4FE"
-            BuildableName = "CPlusPlusCHOPExample.plugin"
-            BlueprintName = "CPlusPlusCHOPExample"
-            ReferencedContainer = "container:CPlusPlusCHOPExample.xcodeproj">
+            BuildableName = "TDSlamtec.plugin"
+            BlueprintName = "TDSlamtec"
+            ReferencedContainer = "container:TDSlamtec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -12,7 +12,7 @@
 		DE67028E22724C7800930753 /* net_serial.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028B22724C7800930753 /* net_serial.o */; };
 		DE67028F22724C7800930753 /* timer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028C22724C7800930753 /* timer.o */; };
 		DE67029022724C7800930753 /* net_socket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028D22724C7800930753 /* net_socket.o */; };
-		E23329E31DF092C90002B4FE /* CPlusPlusCHOPExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E23329E11DF092C90002B4FE /* CPlusPlusCHOPExample.cpp */; };
+		E23329E31DF092C90002B4FE /* TDSlamtec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E23329E11DF092C90002B4FE /* TDSlamtec.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +21,12 @@
 		DE67028B22724C7800930753 /* net_serial.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = net_serial.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/net_serial.o; sourceTree = "<group>"; };
 		DE67028C22724C7800930753 /* timer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = timer.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/timer.o; sourceTree = "<group>"; };
 		DE67028D22724C7800930753 /* net_socket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = net_socket.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/net_socket.o; sourceTree = "<group>"; };
-		E23329D61DF092AD0002B4FE /* CPlusPlusCHOPExample.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPlusPlusCHOPExample.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23329D61DF092AD0002B4FE /* TDSlamtec.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDSlamtec.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23329D91DF092AD0002B4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E23329DF1DF092C90002B4FE /* CHOP_CPlusPlusBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOP_CPlusPlusBase.h; sourceTree = SOURCE_ROOT; };
 		E23329E01DF092C90002B4FE /* CPlusPlus_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlusPlus_Common.h; sourceTree = SOURCE_ROOT; };
-		E23329E11DF092C90002B4FE /* CPlusPlusCHOPExample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPlusPlusCHOPExample.cpp; sourceTree = SOURCE_ROOT; };
-		E23329E21DF092C90002B4FE /* CPlusPlusCHOPExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlusPlusCHOPExample.h; sourceTree = SOURCE_ROOT; };
+		E23329E11DF092C90002B4FE /* TDSlamtec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDSlamtec.cpp; sourceTree = SOURCE_ROOT; };
+		E23329E21DF092C90002B4FE /* TDSlamtec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSlamtec.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		E23329D71DF092AD0002B4FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E23329D61DF092AD0002B4FE /* CPlusPlusCHOPExample.plugin */,
+				E23329D61DF092AD0002B4FE /* TDSlamtec.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,8 +79,8 @@
 			children = (
 				E23329DF1DF092C90002B4FE /* CHOP_CPlusPlusBase.h */,
 				E23329E01DF092C90002B4FE /* CPlusPlus_Common.h */,
-				E23329E11DF092C90002B4FE /* CPlusPlusCHOPExample.cpp */,
-				E23329E21DF092C90002B4FE /* CPlusPlusCHOPExample.h */,
+				E23329E11DF092C90002B4FE /* TDSlamtec.cpp */,
+				E23329E21DF092C90002B4FE /* TDSlamtec.h */,
 				E23329D91DF092AD0002B4FE /* Info.plist */,
 			);
 			name = CHOP;
@@ -89,9 +89,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E23329D51DF092AD0002B4FE /* CPlusPlusCHOPExample */ = {
+		E23329D51DF092AD0002B4FE /* TDSlamtec */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E23329DC1DF092AD0002B4FE /* Build configuration list for PBXNativeTarget "CPlusPlusCHOPExample" */;
+			buildConfigurationList = E23329DC1DF092AD0002B4FE /* Build configuration list for PBXNativeTarget "TDSlamtec" */;
 			buildPhases = (
 				E23329D21DF092AD0002B4FE /* Sources */,
 				E23329D31DF092AD0002B4FE /* Frameworks */,
@@ -101,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = CPlusPlusCHOPExample;
+			name = TDSlamtec;
 			productName = CPlusPlusCHOPExample;
-			productReference = E23329D61DF092AD0002B4FE /* CPlusPlusCHOPExample.plugin */;
+			productReference = E23329D61DF092AD0002B4FE /* TDSlamtec.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -121,11 +121,12 @@
 					};
 				};
 			};
-			buildConfigurationList = E23329D11DF092AD0002B4FE /* Build configuration list for PBXProject "CPlusPlusCHOPExample" */;
+			buildConfigurationList = E23329D11DF092AD0002B4FE /* Build configuration list for PBXProject "TDSlamtec" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = E23329CD1DF092AD0002B4FE;
@@ -133,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E23329D51DF092AD0002B4FE /* CPlusPlusCHOPExample */,
+				E23329D51DF092AD0002B4FE /* TDSlamtec */,
 			);
 		};
 /* End PBXProject section */
@@ -153,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E23329E31DF092C90002B4FE /* CPlusPlusCHOPExample.cpp in Sources */,
+				E23329E31DF092C90002B4FE /* TDSlamtec.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +303,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E23329D11DF092AD0002B4FE /* Build configuration list for PBXProject "CPlusPlusCHOPExample" */ = {
+		E23329D11DF092AD0002B4FE /* Build configuration list for PBXProject "TDSlamtec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E23329DA1DF092AD0002B4FE /* Debug */,
@@ -311,7 +312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E23329DC1DF092AD0002B4FE /* Build configuration list for PBXNativeTarget "CPlusPlusCHOPExample" */ = {
+		E23329DC1DF092AD0002B4FE /* Build configuration list for PBXNativeTarget "TDSlamtec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E23329DD1DF092AD0002B4FE /* Debug */,
