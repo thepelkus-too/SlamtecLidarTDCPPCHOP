@@ -87,6 +87,7 @@ CPlusPlusCHOPExample::CPlusPlusCHOPExample(const OP_NodeInfo *info) : myNodeInfo
     myExecuteCount = 0;
     myOffset = 0.0;
     calibrationFramesRemaining = 0;
+    drv = NULL;
 }
 
 CPlusPlusCHOPExample::~CPlusPlusCHOPExample()
