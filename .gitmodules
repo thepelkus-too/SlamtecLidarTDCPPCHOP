@@ -1,0 +1,3 @@
+[submodule "rplidar_sdk"]
+	path = rplidar_sdk
+	url = git@github.com:thepelkus-too/rplidar_sdk.git

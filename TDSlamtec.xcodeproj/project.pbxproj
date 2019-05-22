@@ -7,20 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE67028822724BE400930753 /* rplidar_driver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028722724BE400930753 /* rplidar_driver.o */; };
-		DE67028A22724C7100930753 /* thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028922724C7100930753 /* thread.o */; };
-		DE67028E22724C7800930753 /* net_serial.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028B22724C7800930753 /* net_serial.o */; };
-		DE67028F22724C7800930753 /* timer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028C22724C7800930753 /* timer.o */; };
-		DE67029022724C7800930753 /* net_socket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67028D22724C7800930753 /* net_socket.o */; };
-		E23329E31DF092C90002B4FE /* TDSlamtec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E23329E11DF092C90002B4FE /* TDSlamtec.cpp */; };
+		DE08075F2294FFB1008EAD18 /* TDSlamtec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E23329E11DF092C90002B4FE /* TDSlamtec.cpp */; };
+		DE08076022950467008EAD18 /* rplidar_driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE0806792294FD8F008EAD18 /* rplidar_driver.cpp */; settings = {COMPILER_FLAGS = "-Wno-c++11-narrowing"; }; };
+		DE08076122951356008EAD18 /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE08066F2294FD8F008EAD18 /* thread.cpp */; };
+		DE08076222951385008EAD18 /* net_socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE08067E2294FD8F008EAD18 /* net_socket.cpp */; };
+		DE08076322951388008EAD18 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE08067F2294FD8F008EAD18 /* timer.cpp */; };
+		DE0807642295138A008EAD18 /* net_serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE0806812294FD8F008EAD18 /* net_serial.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE67028722724BE400930753 /* rplidar_driver.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rplidar_driver.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/rplidar_driver.o; sourceTree = "<group>"; };
-		DE67028922724C7100930753 /* thread.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = thread.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/hal/thread.o; sourceTree = "<group>"; };
-		DE67028B22724C7800930753 /* net_serial.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = net_serial.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/net_serial.o; sourceTree = "<group>"; };
-		DE67028C22724C7800930753 /* timer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = timer.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/timer.o; sourceTree = "<group>"; };
-		DE67028D22724C7800930753 /* net_socket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = net_socket.o; path = ../rplidar_sdk/sdk/obj/Darwin/Release/sdk/src/arch/macOS/net_socket.o; sourceTree = "<group>"; };
+		DE08060D2294FD8F008EAD18 /* CP210x_Windows_Drivers.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = CP210x_Windows_Drivers.zip; sourceTree = "<group>"; };
+		DE08060E2294FD8F008EAD18 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DE0806102294FD8F008EAD18 /* ReleaseNote.v1.8.1.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.8.1.md; sourceTree = "<group>"; };
+		DE0806112294FD8F008EAD18 /* ReleaseNote.v1.9.0.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.9.0.md; sourceTree = "<group>"; };
+		DE0806122294FD8F008EAD18 /* ReleaseNote.v1.8.0.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.8.0.md; sourceTree = "<group>"; };
+		DE0806132294FD8F008EAD18 /* ReleaseNote.v1.9.1.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.9.1.md; sourceTree = "<group>"; };
+		DE0806142294FD8F008EAD18 /* ReleaseNote.v1.11.0.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.11.0.md; sourceTree = "<group>"; };
+		DE0806152294FD8F008EAD18 /* ReleaseNote.v1.10.0.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.v1.10.0.md; sourceTree = "<group>"; };
+		DE0806162294FD8F008EAD18 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DE0806172294FD8F008EAD18 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DE0806532294FD8F008EAD18 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DE0806542294FD8F008EAD18 /* mak_def.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = mak_def.inc; sourceTree = "<group>"; };
+		DE0806552294FD8F008EAD18 /* mak_common.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = mak_common.inc; sourceTree = "<group>"; };
+		DE0806662294FD8F008EAD18 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DE0806682294FD8F008EAD18 /* rplidar_protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_protocol.h; sourceTree = "<group>"; };
+		DE0806692294FD8F008EAD18 /* rptypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rptypes.h; sourceTree = "<group>"; };
+		DE08066A2294FD8F008EAD18 /* rplidar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar.h; sourceTree = "<group>"; };
+		DE08066B2294FD8F008EAD18 /* rplidar_cmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_cmd.h; sourceTree = "<group>"; };
+		DE08066C2294FD8F008EAD18 /* rplidar_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_driver.h; sourceTree = "<group>"; };
+		DE08066F2294FD8F008EAD18 /* thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
+		DE0806702294FD8F008EAD18 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		DE0806712294FD8F008EAD18 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		DE0806722294FD8F008EAD18 /* byteops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byteops.h; sourceTree = "<group>"; };
+		DE0806732294FD8F008EAD18 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
+		DE0806742294FD8F008EAD18 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		DE0806752294FD8F008EAD18 /* locker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locker.h; sourceTree = "<group>"; };
+		DE0806762294FD8F008EAD18 /* abs_rxtx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = abs_rxtx.h; sourceTree = "<group>"; };
+		DE0806772294FD8F008EAD18 /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assert.h; sourceTree = "<group>"; };
+		DE0806782294FD8F008EAD18 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		DE0806792294FD8F008EAD18 /* rplidar_driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rplidar_driver.cpp; sourceTree = "<group>"; };
+		DE08067A2294FD8F008EAD18 /* rplidar_driver_TCP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_driver_TCP.h; sourceTree = "<group>"; };
+		DE08067D2294FD8F008EAD18 /* net_serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_serial.h; sourceTree = "<group>"; };
+		DE08067E2294FD8F008EAD18 /* net_socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_socket.cpp; sourceTree = "<group>"; };
+		DE08067F2294FD8F008EAD18 /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		DE0806802294FD8F008EAD18 /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		DE0806812294FD8F008EAD18 /* net_serial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_serial.cpp; sourceTree = "<group>"; };
+		DE0806822294FD8F008EAD18 /* thread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = thread.hpp; sourceTree = "<group>"; };
+		DE0806832294FD8F008EAD18 /* arch_macOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arch_macOS.h; sourceTree = "<group>"; };
+		DE0806942294FD8F008EAD18 /* rplidar_driver_serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_driver_serial.h; sourceTree = "<group>"; };
+		DE0806952294FD8F008EAD18 /* rplidar_driver_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rplidar_driver_impl.h; sourceTree = "<group>"; };
+		DE0806962294FD8F008EAD18 /* sdkcommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdkcommon.h; sourceTree = "<group>"; };
+		DE0806972294FD8F008EAD18 /* cross_compile.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cross_compile.sh; sourceTree = "<group>"; };
 		E23329D61DF092AD0002B4FE /* TDSlamtec.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDSlamtec.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23329D91DF092AD0002B4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E23329DF1DF092C90002B4FE /* CHOP_CPlusPlusBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHOP_CPlusPlusBase.h; sourceTree = SOURCE_ROOT; };
@@ -34,25 +71,145 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE67028822724BE400930753 /* rplidar_driver.o in Frameworks */,
-				DE67028A22724C7100930753 /* thread.o in Frameworks */,
-				DE67028E22724C7800930753 /* net_serial.o in Frameworks */,
-				DE67028F22724C7800930753 /* timer.o in Frameworks */,
-				DE67029022724C7800930753 /* net_socket.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE08060A2294FD8F008EAD18 /* rplidar_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				DE08060B2294FD8F008EAD18 /* tools */,
+				DE08060E2294FD8F008EAD18 /* LICENSE */,
+				DE08060F2294FD8F008EAD18 /* docs */,
+				DE0806162294FD8F008EAD18 /* README.md */,
+				DE0806172294FD8F008EAD18 /* .gitignore */,
+				DE0806182294FD8F008EAD18 /* sdk */,
+			);
+			path = rplidar_sdk;
+			sourceTree = "<group>";
+		};
+		DE08060B2294FD8F008EAD18 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				DE08060C2294FD8F008EAD18 /* cp2102_driver */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		DE08060C2294FD8F008EAD18 /* cp2102_driver */ = {
+			isa = PBXGroup;
+			children = (
+				DE08060D2294FD8F008EAD18 /* CP210x_Windows_Drivers.zip */,
+			);
+			path = cp2102_driver;
+			sourceTree = "<group>";
+		};
+		DE08060F2294FD8F008EAD18 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				DE0806102294FD8F008EAD18 /* ReleaseNote.v1.8.1.md */,
+				DE0806112294FD8F008EAD18 /* ReleaseNote.v1.9.0.md */,
+				DE0806122294FD8F008EAD18 /* ReleaseNote.v1.8.0.md */,
+				DE0806132294FD8F008EAD18 /* ReleaseNote.v1.9.1.md */,
+				DE0806142294FD8F008EAD18 /* ReleaseNote.v1.11.0.md */,
+				DE0806152294FD8F008EAD18 /* ReleaseNote.v1.10.0.md */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		DE0806182294FD8F008EAD18 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				DE0806532294FD8F008EAD18 /* Makefile */,
+				DE0806542294FD8F008EAD18 /* mak_def.inc */,
+				DE0806552294FD8F008EAD18 /* mak_common.inc */,
+				DE0806652294FD8F008EAD18 /* sdk */,
+				DE0806972294FD8F008EAD18 /* cross_compile.sh */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
+		DE0806652294FD8F008EAD18 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				DE0806662294FD8F008EAD18 /* Makefile */,
+				DE0806672294FD8F008EAD18 /* include */,
+				DE08066D2294FD8F008EAD18 /* src */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
+		DE0806672294FD8F008EAD18 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DE0806682294FD8F008EAD18 /* rplidar_protocol.h */,
+				DE0806692294FD8F008EAD18 /* rptypes.h */,
+				DE08066A2294FD8F008EAD18 /* rplidar.h */,
+				DE08066B2294FD8F008EAD18 /* rplidar_cmd.h */,
+				DE08066C2294FD8F008EAD18 /* rplidar_driver.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DE08066D2294FD8F008EAD18 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DE08066E2294FD8F008EAD18 /* hal */,
+				DE0806792294FD8F008EAD18 /* rplidar_driver.cpp */,
+				DE08067A2294FD8F008EAD18 /* rplidar_driver_TCP.h */,
+				DE08067B2294FD8F008EAD18 /* arch */,
+				DE0806942294FD8F008EAD18 /* rplidar_driver_serial.h */,
+				DE0806952294FD8F008EAD18 /* rplidar_driver_impl.h */,
+				DE0806962294FD8F008EAD18 /* sdkcommon.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DE08066E2294FD8F008EAD18 /* hal */ = {
+			isa = PBXGroup;
+			children = (
+				DE08066F2294FD8F008EAD18 /* thread.cpp */,
+				DE0806702294FD8F008EAD18 /* event.h */,
+				DE0806712294FD8F008EAD18 /* types.h */,
+				DE0806722294FD8F008EAD18 /* byteops.h */,
+				DE0806732294FD8F008EAD18 /* thread.h */,
+				DE0806742294FD8F008EAD18 /* util.h */,
+				DE0806752294FD8F008EAD18 /* locker.h */,
+				DE0806762294FD8F008EAD18 /* abs_rxtx.h */,
+				DE0806772294FD8F008EAD18 /* assert.h */,
+				DE0806782294FD8F008EAD18 /* socket.h */,
+			);
+			path = hal;
+			sourceTree = "<group>";
+		};
+		DE08067B2294FD8F008EAD18 /* arch */ = {
+			isa = PBXGroup;
+			children = (
+				DE08067C2294FD8F008EAD18 /* macOS */,
+			);
+			path = arch;
+			sourceTree = "<group>";
+		};
+		DE08067C2294FD8F008EAD18 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				DE08067D2294FD8F008EAD18 /* net_serial.h */,
+				DE08067E2294FD8F008EAD18 /* net_socket.cpp */,
+				DE08067F2294FD8F008EAD18 /* timer.cpp */,
+				DE0806802294FD8F008EAD18 /* timer.h */,
+				DE0806812294FD8F008EAD18 /* net_serial.cpp */,
+				DE0806822294FD8F008EAD18 /* thread.hpp */,
+				DE0806832294FD8F008EAD18 /* arch_macOS.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
 		DE67028622724BE300930753 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DE67028B22724C7800930753 /* net_serial.o */,
-				DE67028D22724C7800930753 /* net_socket.o */,
-				DE67028C22724C7800930753 /* timer.o */,
-				DE67028922724C7100930753 /* thread.o */,
-				DE67028722724BE400930753 /* rplidar_driver.o */,
+				DE08060A2294FD8F008EAD18 /* rplidar_sdk */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,7 +252,6 @@
 			buildPhases = (
 				E23329D21DF092AD0002B4FE /* Sources */,
 				E23329D31DF092AD0002B4FE /* Frameworks */,
-				E23329D41DF092AD0002B4FE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -139,22 +295,17 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		E23329D41DF092AD0002B4FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E23329D21DF092AD0002B4FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E23329E31DF092C90002B4FE /* TDSlamtec.cpp in Sources */,
+				DE08076222951385008EAD18 /* net_socket.cpp in Sources */,
+				DE08076322951388008EAD18 /* timer.cpp in Sources */,
+				DE0807642295138A008EAD18 /* net_serial.cpp in Sources */,
+				DE08076122951356008EAD18 /* thread.cpp in Sources */,
+				DE08076022950467008EAD18 /* rplidar_driver.cpp in Sources */,
+				DE08075F2294FFB1008EAD18 /* TDSlamtec.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +420,18 @@
 		E23329DD1DF092AD0002B4FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_MACOS=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				HEADER_SEARCH_PATHS = (
-					/Users/kaicurtis/personal/code/rplidar_sdk/sdk/sdk/src,
-					/Users/kaicurtis/personal/code/rplidar_sdk/sdk/sdk/include,
+					rplidar_sdk/sdk/sdk/include,
+					rplidar_sdk/sdk/sdk/src,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = /;
@@ -286,10 +445,14 @@
 		E23329DE1DF092AD0002B4FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				HEADER_SEARCH_PATHS = (
-					/Users/kaicurtis/personal/code/rplidar_sdk/sdk/sdk/src,
-					/Users/kaicurtis/personal/code/rplidar_sdk/sdk/sdk/include,
+					rplidar_sdk/sdk/sdk/include,
+					rplidar_sdk/sdk/sdk/src,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = /;
