@@ -31,3 +31,11 @@ DerivedData/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
+
+# vs etc
+.vs
+*.vcxproj.user
+Debug
+obj
+output
+x64
