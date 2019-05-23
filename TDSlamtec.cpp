@@ -15,8 +15,6 @@
 
 #include "TDSlamtec.h"
 
-#include <string>
-
 #include <stdio.h>
 #include <string.h>
 #include <cmath>

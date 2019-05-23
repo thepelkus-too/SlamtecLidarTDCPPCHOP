@@ -8,6 +8,8 @@
  * modification, is permitted.
  */
 
+#include <string>
+
 #include "CHOP_CPlusPlusBase.h"
 #include <rplidar.h>
 
