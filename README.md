@@ -11,8 +11,8 @@ A CPP CHOP for TouchDesigner for gathering data from a Slamtec RPLidar scanner
 
 Building should be pretty straightforward. Clone the repo, **make sure you have the git submodule for the rplidar sdk pulled**, then open the .xcodeproj file and build to produce a .plugin artifact that you can pull in to your TD project.
 
-### WINDOWS - WIP
-This isn't set up to build properly at the moment. I got it working once on one machine, but there's a lot of cleanup to be done, paths to be setup, flags to be changed, etc. I'll work on getting this set up ASAP, but contributions are also always welcome. :D
+### WINDOWS
+Building should be pretty straightforward? I haven't checked to make sure that this works on other machines, in other directories, etc. Solution and projects are set up for VS2019 (made in VS2019 Community Edition). Clone the repo, **make sure you have the git submodule for the rplidar sdk pulled**, then open the top level .sln file and build to produce a .dll artifact that you can pull in to your TD project. (By default, this will be located in a Debug directory that Visual Studio will create within the main directory when you build.) 
 
 
 ## Interface / How to use
@@ -23,6 +23,5 @@ I don't totally understand what clumps of data are being returned from the senso
 
 
 ## TODO
-- [ ] Try using the hq data methods from the sdk
-- [ ] See if there's a way to get more data faster without using the blocking methods
+- [ ] Try using the hq data methods from the sdk (good for A2, A3)
 - [ ] Experiment with data representations other than the forced half-degree bucketing
