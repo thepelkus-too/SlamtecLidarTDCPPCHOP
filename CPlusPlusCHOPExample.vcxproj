@@ -91,6 +91,11 @@
   <ItemGroup>
     <ClCompile Include="TDSlamtec.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="rplidar_sdk\sdk\workspaces\vc10\rplidar_driver\rplidar_driver.vcxproj">
+      <Project>{1f0aa469-8a8f-4ada-931d-967d2c5996df}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
