@@ -276,15 +276,18 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
             float unadjustedAngle = (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT) / 64.0f;
             if (unadjustedAngle > 360.0f)
             {
-                //                printf("Skipping bad angle: %f\n", unadjustedAngle);
+                // printf("Skipping bad angle: %f\n", unadjustedAngle);
                 continue;
             }
             if (unadjustedAngle < 0.0f)
             {
-                //                printf("Skipping bad angle: %f\n", unadjustedAngle);
+                // printf("Skipping bad angle: %f\n", unadjustedAngle);
                 continue;
             }
-            tempAngle = offsetDegrees - unadjustedAngle;
+            tempAngle = (double)offsetDegrees - (double)unadjustedAngle;
+			if (tempAngle < 0) {
+				tempAngle += 360.0f;
+			}
             halfAngle = floor(tempAngle * 2);
 
             distance = nodes[pos].distance_q2 / 4.0f;
