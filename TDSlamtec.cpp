@@ -346,21 +346,19 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         default:
             for (int pos = 0; pos < (int)sampleCount; ++pos)
             {
-                if (distances[pos] < 1.0f)
-                    continue;
-
                 angle = pos / 2.0f * degreesToRadians;
-                if (abs(calibration[pos] - distances[pos]) < 150.0f)
-                {
-                    distance = 0;
-                }
-                else
-                {
-                    distance = distances[pos];
-                    //                        if (myExecuteCount > 1020) {
-                    //                            printf("Angle %d    Distance %f    CalDist: %f\n", pos, distances[pos], calibration[pos]);
-                    //                        }
-                }
+                distance = distances[pos];
+
+//                // WIP: Calibration
+//                if (abs(calibration[pos] - distances[pos]) < 150.0f)
+//                {
+//                    distance = 0;
+//                }
+//                else
+//                {
+//                    distance = distances[pos];
+//                }
+
                 output->channels[xChannel][pos] = distance * cos(angle);
                 output->channels[yChannel][pos] = distance * sin(angle);
             }
