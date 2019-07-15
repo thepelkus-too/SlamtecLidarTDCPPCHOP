@@ -245,7 +245,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
     if (!drv)
     {
         printf("rplidar::trying default values\n");
-        for (int pos = 0; pos < (int)720; ++pos)
+        for (int pos = 0; pos < (int)sampleCount; ++pos)
         {
             calibration[pos] = 0;
             output->channels[angleChannel][pos] = 0;
@@ -284,6 +284,9 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
                 // printf("Skipping bad angle: %f\n", unadjustedAngle);
                 continue;
             }
+
+            // Add in offset from OP controls;
+            //   make sure modified degrees are > 0
             tempAngle = (double)offsetDegrees - (double)unadjustedAngle;
 			if (tempAngle < 0) {
 				tempAngle += 360.0f;
@@ -291,6 +294,9 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
             halfAngle = floor(tempAngle * 2);
 
             distance = nodes[pos].distance_q2 / 4.0f;
+
+            // Attempt to discard bad data;
+            //   should probably be opt-in/out with a toggle
             if (distance > 5000.0f)
             {
                 distances[halfAngle] = 0;
@@ -304,7 +310,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         // if calibrating, calibrate!
         if (calibrationFramesRemaining > 0)
         {
-            for (int pos = 0; pos < (int)720; ++pos)
+            for (int pos = 0; pos < (int)sampleCount; ++pos)
             {
                 if (distances[pos] < 5.0f)
                     continue;
@@ -316,7 +322,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
             // DEBUG: print calibration data on last calibration frame
             if (calibrationFramesRemaining == 1)
             {
-                for (int pos = 0; pos < (int)720; ++pos)
+                for (int pos = 0; pos < (int)sampleCount; ++pos)
                 {
                     printf("CAL: Angle %d    Distance %f\n", pos, calibration[pos]);
                 }
@@ -328,7 +334,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         switch (coordSystem)
         {
         case 0:
-            for (int pos = 0, channelOffset = 0; pos < (int)720; ++pos)
+            for (int pos = 0, channelOffset = 0; pos < (int)sampleCount; ++pos)
             {
                 angle = pos / 2.0f * degreesToRadians;
                 output->channels[angleChannel][channelOffset] = pos / 2.0f;
@@ -339,7 +345,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
 
         case 1:
         default:
-            for (int pos = 0, channelOffset = 0; pos < (int)720; ++pos)
+            for (int pos = 0, channelOffset = 0; pos < (int)sampleCount; ++pos)
             {
                 if (distances[pos] < 1.0f)
                     continue;
@@ -527,7 +533,7 @@ void CPlusPlusCHOPExample::pulsePressed(const char *name, void *reserved1)
 {
     if (!strcmp(name, "Reset"))
     {
-        for (int i = 0; i < 720; ++i)
+        for (int i = 0; i < sampleCount; ++i)
         {
             calibration[i] = 0.0f;
         }
