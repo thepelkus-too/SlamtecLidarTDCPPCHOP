@@ -256,7 +256,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
 
     //    op_result = drv->grabScanData(nodes, count);
     op_result = drv->getScanDataWithInterval(nodes, retrieved);
-    //    printf("Retrieved: %lu", retrieved);
+//    printf("Retrieved: %lu", retrieved);
 
     //    int samples = inputs->getParInt("Samples");
     float offsetDegrees = inputs->getParDouble("Offsetdegrees");
@@ -271,7 +271,7 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         double tempAngle;
         int halfAngle;
 
-        for (int pos = 0; pos < (int)sampleCount; ++pos)
+        for (int pos = 0; pos < (int)retrieved; ++pos)
         {
             float unadjustedAngle = (nodes[pos].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT) / 64.0f;
             if (unadjustedAngle > 360.0f)

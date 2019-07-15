@@ -87,7 +87,7 @@ private:
     static const int sampleCount = 720;
     double distances[sampleCount] = {0};
     double calibration[sampleCount] = {0};
-    
+
     const int totalCalbrationFrames = 60;
     int calibrationFramesRemaining = 0;
     
