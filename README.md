@@ -26,7 +26,7 @@ _Note: solution and projects are set up for VS2019 (made in VS2019 Community Edi
 You should now have .dll to use with the cpp chop. (By default, this will be located in a Debug directory that Visual Studio will create within the main directory when you build.) 
 
 
-## Interface / How to use
+## How to use
 
 1. Plug in your sensor (being sure to use a USB cable that isn't power only; some of us learned this the hard way)
 1. Determine what port your sensor is on
@@ -47,9 +47,27 @@ You should now have .dll to use with the cpp chop. (By default, this will be loc
 
 At this point, your lidar sensor should pause and then spin back up, and some data should appear in your CHOP.
 
+## Interface
+_Diagram coming soon!_
+
+**Active** - toggle this on to make the plugin attempt to connect to the lidar sensor. If given a bad port, this will currently fail silently and the toggle will stay on. To re-attempt connection, toggle this off and back on again.
+
+**COM Port** - the port on which the driver will attempt to connect. This should be a COM port on Windows and a `/dev/tty` port on OSX.
+
+**Coordsystem** - the coordinate system in which data will be returned.
+
+    Polar: data comes in as an angle channel and corresponding distance channel
+    
+    Cartesian: data comes in as an x channel and corresponding y channel
+    
+**Offset** - the degrees by which to rotate all incoming data. Example use case: when I have my sensor mounted the way I want, the data as mapped by default looks like it's off by 90 degrees i.e. boxes instanced to what I'd consider data from the ceiling form a vertical line on the left. Using the offset value, I can rotate the ceiling to be a horizontal line across the top of my instances.
+
+**Reset** - (experimental) a button that will set a "baseline" for the data. Clicking this will store averages of the next several rotations at each half-degree and then only send data through that's significantly different from that baseline data. The idea here was that I might want to situate the sensor and effectively zero out the default distances so that I only really see _changing_ data. Currently disconnected from output, so tapping this should do nothing.
+
 ## Miscellaneous notes and caveats
 
-Data from the device is currently being bucketed into half-degree slots. You can get this in polar (angle/distance) or cartesian (x/y). Because you may want to reorient the data, there's an angle offset value that can be used to rotate the .
+ - Data from the device is currently being bucketed into half-degree slots
+ - **BUG**: Cartesian data isn't properly filling out the channel
 
 
 ## TODO
