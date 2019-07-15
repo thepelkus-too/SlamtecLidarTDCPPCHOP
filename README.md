@@ -35,7 +35,7 @@ You should now have .dll to use with the cpp chop. (By default, this will be loc
     
     Example ports from my machines:
     
-    OSX - `/dev/tty.SLAB_USBtoUART`
+    OSX - `/dev/tty.SLAB_USBtoUART` (the hard-coded default)
     
     Win - `\\.\COM3`
   
@@ -45,7 +45,7 @@ You should now have .dll to use with the cpp chop. (By default, this will be loc
 1. Enter the correct port path in the `COM Port` field
 1. Click the active toggle
 
-At this point, your lidar sensor should pause and then spin back up, and some data should appear in your CHOP. There's a good chance that you'll need to use the offset slider to get the correct distance data to appear. (This is due to a bug that needs fixing.)
+At this point, your lidar sensor should pause and then spin back up, and some data should appear in your CHOP.
 
 ## Miscellaneous notes and caveats
 
