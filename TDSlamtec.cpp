@@ -334,18 +334,17 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
         switch (coordSystem)
         {
         case 0:
-            for (int pos = 0, channelOffset = 0; pos < (int)sampleCount; ++pos)
+            for (int pos = 0; pos < (int)sampleCount; ++pos)
             {
                 angle = pos / 2.0f * degreesToRadians;
-                output->channels[angleChannel][channelOffset] = pos / 2.0f;
-                output->channels[distanceChannel][channelOffset] = distances[pos];
-                ++channelOffset;
+                output->channels[angleChannel][pos] = pos / 2.0f;
+                output->channels[distanceChannel][pos] = distances[pos];
             }
             break;
 
         case 1:
         default:
-            for (int pos = 0, channelOffset = 0; pos < (int)sampleCount; ++pos)
+            for (int pos = 0; pos < (int)sampleCount; ++pos)
             {
                 if (distances[pos] < 1.0f)
                     continue;
@@ -362,9 +361,8 @@ void CPlusPlusCHOPExample::execute(CHOP_Output *output,
                     //                            printf("Angle %d    Distance %f    CalDist: %f\n", pos, distances[pos], calibration[pos]);
                     //                        }
                 }
-                output->channels[xChannel][channelOffset] = distance * cos(angle);
-                output->channels[yChannel][channelOffset] = distance * sin(angle);
-                ++channelOffset;
+                output->channels[xChannel][pos] = distance * cos(angle);
+                output->channels[yChannel][pos] = distance * sin(angle);
             }
             break;
         }
