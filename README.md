@@ -35,6 +35,12 @@ You should now have .dll to use with the cpp chop. (By default, this will be loc
 
 ## How to use
 
+_NB: [@AlphaMoonbaseBerlin](https://github.com/AlphaMoonbaseBerlin) left this note in the issues:_
+> On windows, if there is not internet or just a metered connection, Windows will not autoDownload the driver for the bridge.
+Either force it to download via windowsUpdate or download the drivers directly.
+https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads
+
+
 1. Plug in your sensor (being sure to use a USB cable that isn't power only; some of us learned this the hard way)
 1. Determine what port your sensor is on
 
