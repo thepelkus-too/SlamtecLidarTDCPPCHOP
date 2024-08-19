@@ -6,7 +6,7 @@ A CPP CHOP for TouchDesigner for gathering data from a Slamtec RPLidar scanner
 
 ## Downloading
 
-There are downloadable versions of the plugin available in the Releases. However, the mac version was built many moons ago on Intel silicon. I've got an M2 in the office these days, though, so I should be able to go in and make a new build. Caveat: I've got no experience aside from this in building native libraries, so it may not work for you, which is why I've got the building instructions below.
+There are downloadable versions of the plugin available in the Releases. However, the mac version was built many moons ago on Intel silicon. ~~I've got an M2 in the office these days, though, so I should be able to go in and make a new build.~~ I don't really have an office anymore, so I could use some help building for ARM macs. Caveat: I've got no experience aside from this in building native libraries, so it may not work for you, which is why I've got the building instructions below.
 
 ## Building
 
