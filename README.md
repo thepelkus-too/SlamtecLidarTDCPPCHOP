@@ -1,6 +1,8 @@
 # SlamtecLidarTDCPPCHOP
 A CPP CHOP for TouchDesigner for gathering data from a Slamtec RPLidar scanner
 
+NOTE: I am not actively maintaining this; an alternative that I have not tried but that looks pretty good is https://github.com/Ajasra/SlamtecCHOP (if you try it, let me know how it works so that I can feel better about directing people toward it 😅)
+
 ## External documentation
 - Lake Heckaman posted a nice video on using this plugin; check it out! https://www.youtube.com/watch?v=fAvF2niosNA
 
